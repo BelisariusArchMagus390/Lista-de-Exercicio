@@ -1,4 +1,4 @@
-﻿namespace Exercicio_11
+﻿namespace Exercicio_13
 {
     internal class Program
     {
@@ -11,7 +11,7 @@
                 Console.Clear();
 
                 Console.WriteLine(" ---------------------------------------------");
-                Console.WriteLine($"\n IDENTIFICAÇÃO DO NÚMERO SE É PAR OU ÍMPAR");
+                Console.WriteLine($"\n FATORIAL DE UM NÚMERO");
                 Console.WriteLine("\n ---------------------------------------------");
 
                 string numberStr = "";
@@ -36,14 +36,27 @@
 
             Console.WriteLine("\n ---------------------------------------");
 
-            if ((number % 2) == 0)
-                Console.WriteLine("\n Esse número é par!");
-            else
-                Console.WriteLine("\n Esse número é ímpar!");
-            
+            Console.Write($"\n {number}! =");
+            factorial(number, 1);
+
             Console.WriteLine("\n ---------------------------------------");
             Console.WriteLine("\n Aperte Enter para sair...");
             Console.ReadLine();
+        }
+
+        static void factorial(int number, int res)
+        {
+            if (number == 1)
+            {
+                res *= number;
+                Console.Write($" {number} = {res}\n");
+            }   
+            else
+            {
+                res *= number;
+                Console.Write($" {number} X");
+                factorial((number-1), res);
+            }
         }
     }
 }
