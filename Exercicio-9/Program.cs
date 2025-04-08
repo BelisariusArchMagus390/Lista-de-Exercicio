@@ -13,7 +13,7 @@
                 Console.Clear();
 
                 Console.WriteLine(" -------------------------------------------------------------------");
-                Console.WriteLine($"\n ORDEM DECRESCENTE DE TRÊS VALORES.");
+                Console.WriteLine($"\n ORDEM DECRESCENTE DE TRÊS VALORES");
                 Console.WriteLine("\n -------------------------------------------------------------------");
 
                 string valueStr = "";
@@ -61,7 +61,15 @@
 
             arrayValues = sortArray(arrayValues);
 
+            Console.Clear();
+
+            Console.WriteLine("\n ---------------------------------------------\n");
+
             showValues(arrayValues);
+
+            Console.WriteLine("\n ---------------------------------------");
+            Console.WriteLine("\n Aperte Enter para sair...");
+            Console.ReadLine();
         }
 
         static bool checkIfHaventNumber(int[] arrayValues, int value)
@@ -77,25 +85,35 @@
                 else
                     response = true;
             }
-
             return response;
         }
 
         static int[] sortArray(int[] arrayValues)
         {
-            int length = arrayValues.Length;
-
-            for (int outer = 0; outer < length; outer++)
+            while (true)
             {
-                int val = arrayValues[outer];
-
-                for (int inter = 0; inter < length; inter++)
+                Console.WriteLine("lol");
+                if (arrayValues[0] < arrayValues[1])
                 {
-                    if ((arrayValues[inter] > val))
-                    {
-                        arrayValues[outer] = arrayValues[inter];
-                        arrayValues[inter] = val;
-                    }
+                    int first = arrayValues[0];
+                    int second = arrayValues[1];
+
+                    arrayValues[0] = second;
+                    arrayValues[1] = first;
+                }
+
+                if (arrayValues[1] < arrayValues[2])
+                {
+                    int first = arrayValues[1];
+                    int second = arrayValues[2];
+
+                    arrayValues[1] = second;
+                    arrayValues[2] = first;
+                }
+
+                if ((arrayValues[0] > arrayValues[1]) && (arrayValues[1] > arrayValues[2]))
+                {
+                    break;
                 }
             }
 
@@ -105,7 +123,7 @@
         static void showValues(int[] arrayValues)
         {
             foreach (int number in arrayValues)
-                Console.WriteLine(number);
+                Console.WriteLine($" {number}");
         }
     }
 }
